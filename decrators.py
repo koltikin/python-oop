@@ -24,35 +24,39 @@
 
 class decrator:
     def __init__(self, b):
-        # pass
-        # decrated_function.__init__(self,naem,age)
-        print(b)
         self.b = b
-        # self.decrated_function = decrated_function
-        # self.full_name = full_name
-        # self.full_name = full_name
 
     def __call__(self, *args, **kwargs):
-        # print(f"decrator excut this befor {decrated_function.__name__()}")
-        print("after decrated_fun")
-        print(self.b)
-        return "hello"
+        print("hello ziay")
+
+        class new_b(self.b):
+            def __init__(self, fname, lname, age):
+                super().__init__(fname, lname)
+                self.age = age
+
+            def see_togather(self):
+                print(
+                    f"my full name is {self.first_name}{self.last_name}, my age is {self.age}"
+                )
+
+        return new_b(args[0], args[1], args[2])
 
 
 @decrator
 class decrated_function:
-    def __init__(self, name, age):
-        print(f"my name is {name}")
+    def __init__(self, fname, lname):
+        print(f"my name is {fname}")
         # print(f"my age is {age}")
-        self.name = name
-        self.age = age
+        self.first_name = fname
+        self.last_name = lname
+        # self.age = age
 
     def see_togather(self):
-        print(f"my name is {self.name}, my age is {self.age}")
+        print(f"my full name is {self.first_name}{self.last_name}")
 
 
-pp = decrated_function("ziya")
-print(pp)
+pp = decrated_function("ziya", "kasgari", 32)
+pp.see_togather()
 # pp.see_togather()
 
 # decrate class with function __________________
